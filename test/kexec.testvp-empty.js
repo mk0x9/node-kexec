@@ -7,9 +7,9 @@ var assert = require('assert')
 suite('kexec')
 
 test('+ kexec() - kexec echovp - two arguments, empty list', function (done) {
-  var echoFile = path.join(__dirname, './files/echovp-empty.sh')
+  var echoFile = path.join(__dirname, './files/echovp-empty.js')
 
-  exec(echoFile, function (error, stdout, stderr) {
+  exec(process.argv[0] + ' ' + echoFile, function (error, stdout, stderr) {
     assert(stdout.trim() === '')
     assert(stderr.trim() === '')
     assert(error === null)
